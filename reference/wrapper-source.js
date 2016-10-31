@@ -195,5 +195,3 @@ window.dome = (function () {
     };
     return dome;
 }());
-
-var test = dome;

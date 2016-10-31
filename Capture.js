@@ -1,12 +1,26 @@
 // Capture.js is the modern web data collection framework for single page application
-//var a;
-//fetch('https://www.ns.sg').then(function(response){a=response});
-//a.headers.get('Content-Encoding');
 
+window.capture = (function(){
 
-$('#test-header').on("click", function(event){
-	//console.log("pageY" + event.pageY + "clientY" + event.clientY + "screenY" + event.screenY);
-	console.log(event);
-	myEvent = event;
-	}
-);
+	// Constructor??
+	function Capture(){
+		var info = platform.parse(navigator.userAgent);
+		this.browserInfo = {
+			name: 			platform.name,
+			version: 		platform.version,
+			os: 			platform.os,
+			layout: 		platform.layout,
+			description: 	platform.description,
+			cookies: 		navigator.cookieEnabled,
+			screenSize: 	window.screen,
+		};
+	};
+
+	var capture = {
+		create: function(){
+			return new Capture();
+		}
+	};
+
+	return capture;
+});

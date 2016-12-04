@@ -2,9 +2,8 @@
 
 window.capture = (function(){
 
-	// Constructor??
-	function Capture(){
-	};
+	// capture.js variables
+	var capturedEvent;
 
 	var capture = {
 		create: function(){
@@ -15,11 +14,11 @@ window.capture = (function(){
 			var browserInfo = {
 				name: 				platform.name,
 				version: 			platform.version,
-				os: 					platform.os,
+				os: 				platform.os,
 				layout: 			platform.layout,
-				description: 	platform.description,
+				description: 		platform.description,
 				cookies: 			navigator.cookieEnabled,
-				screenSize: 	window.screen,
+				screenSize: 		window.screen,
 			};
 			return browserInfo;
 		},
@@ -29,7 +28,8 @@ window.capture = (function(){
 		},
 		createEvent: function(){
 			$("[capture]").on( "click", function() { 
-		  	alert( $( this ).text() );
+		  	capturedEvent = this;
+		  	//console.log(this);
 			});
 		}
 	};
@@ -37,4 +37,4 @@ window.capture = (function(){
 	return capture;
 });
 
-var a = window.capture()
+var pan = window.capture()

@@ -27,9 +27,9 @@ window.capture = (function(){
 			return capturedItems;
 		},
 		createEvent: function(){
-			$("[capture]").on( "click", function() { 
-		  	capturedEvent = this;
-		  	//console.log(this);
+			$("[capture]").on( "click", function(event) { 
+		  	capturedEvent = event.target.innerText;
+		  	alert(capturedEvent);
 			});
 		}
 	};
@@ -37,4 +37,8 @@ window.capture = (function(){
 	return capture;
 });
 
-var pan = window.capture()
+var pan = window.capture();
+
+$(function(){
+	pan.createEvent();
+});
